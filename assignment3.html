@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <style>
+        #box1{
+            width: 50%;
+            background-color: rgb(0, 0, 0);
+            float: left;
+            height: 900px;
+            color: white;
+            font-size: 18px;
+            
+        }
+        #box2{
+            width: 50%;
+            background-color: rgb(22, 98, 58);
+            float: right;
+            height:900px;
+        }
+        form {
+            padding: 20px;
+            color: white;
+            font-size: 18px;
+        }
+        input, button {
+            margin-top: 8px;
+            padding: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #222;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        #previewImage {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preview Box -->
+    <div id="box1">
+        <h2>Preview</h2>
+        <img id="previewImage" src="" alt="No Image">
+        <p><strong>Name:</strong> <span id="previewName">---</span></p>
+        <p><strong>Email:</strong> <span id="previewEmail">---</span></p>
+        <p><strong>Phone:</strong> <span id="previewPhone">---</span></p>
+        <p><strong>Address:</strong> <span id="previewAddress">---</span></p>
+    </div>
+     
+    
+    <div id="box2">
+        <form id="resumeForm">
+            <h3>Enter Your Details</h3>
+            Name: <input type="text" id="name" placeholder="Enter your name"><br><br>
+            Email: <input type="email" id="email" placeholder="Enter your email"><br><br>
+            Phone no: <input type="number" id="phone" placeholder="Enter your phone"><br><br>
+            Address: <input type="text" id="address" placeholder="Enter your address"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("resumeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+
+            
+            document.getElementById("previewName").innerText = name;
+            document.getElementById("previewEmail").innerText = email;
+            document.getElementById("previewPhone").innerText = phone;
+            document.getElementById("previewAddress").innerText = address;
+
+            
+            document.getElementById("previewImage").src = ""; 
+            
+        });
+    </script>
+</body>
+</html>
